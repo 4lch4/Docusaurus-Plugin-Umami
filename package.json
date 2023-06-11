@@ -1,7 +1,7 @@
 {
   "name": "@4lch4/docusaurus-plugin-umami",
   "displayName": "Docusaurus Plugin Umami",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A Docusaurus plugin to add support for Umami analytics.",
   "main": "./src/index.js",
   "exports": "./src/index.js",
@@ -14,11 +14,18 @@
     "test": "echo 'There are currently no tests available.'",
     "scan": "snyk monitor && snyk code test"
   },
-  "files": ["src", "LICENSE", "README.md"],
+  "files": [
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
   "engines": {
     "node": ">=10.15.1"
   },
-  "keywords": ["docusaurus", "umami"],
+  "keywords": [
+    "docusaurus",
+    "umami"
+  ],
   "repository": {
     "type": "git",
     "url": "git@github.com/4lch4/4lch4.git"
