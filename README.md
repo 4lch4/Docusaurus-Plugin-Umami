@@ -1,43 +1,53 @@
-### docusaurus-plugin-umami
+# @4lch4/Docusaurus-Plugin-Umami
 
-This plugin enables you to use umami analytics on a docusaurus site!
+This repo is home to a Docusaurus plugin that is my fork of the [`docusaurus-plugin-umami` plugin][0] by [PatelN123][1]. It enables you to use [Umami analytics][2] on a [Docusaurus site][3].
 
-#### Install the plugin
+## Usage
 
-1. Add the plugin to your project.
+To use the plugin you must first install it, which you can do by running one of the following commands:
 
+```bash
+# npm
+npm i @4lch4/docusaurus-plugin-umami
+
+# pnpm
+pnpm i @4lch4/docusaurus-plugin-umami
+
+# yarn
+yarn add @4lch4/docusaurus-plugin-umami
 ```
-yarn add docusaurus-plugin-umami
-```
 
-or
-
-```
-npm install docusaurus-plugin-umami --save
-```
-
-2. Configure the plugin in `docusaurus.config.js`
+Once you have it installed, you'll need to configure it. To do this, open your [`docusaurus.config.js`][4] file and add a `umami` object to the [`themeConfig`][5] like so:
 
 ```js
 // docusaurus.config.js
 module.exports = {
-  plugins: ["docusaurus-plugin-umami"],
+  plugins: ['@4lch4/docusaurus-plugin-umami'],
   themeConfig: {
     umami: {
-      websiteid: "websiteID", // Insctructions below on how to find this
-      src: "script src", // Instructions below on how to find this
+      websiteId: 'websiteId', // Instructions below on how to find this
+      src: 'script src', // Instructions below on how to find this
     },
-  }
-};
+  },
+}
 ```
 
-### How to find the configutation values for umami
+### Getting the Website Id and Script Src
 
-1. Log into Umami
-2. On the top right, select profile
-3. Select "websites"
-4. Choose the tracking code option:
-<p align="left"><img alt="settings" src="https://github.com/PatelN123/docusaurus-plugin-umami/blob/main/img/embed.png"></p>
+1. Log into your instance of Umami.
+2. In the top right, click on your profile picture and select "Profile".
+   - ![Screenshot 0](./img/Screenshot-0.png)
+   - ![Screenshot 1](./img/Screenshot-1.png)
+3. Click on "Websites" in the left sidebar.
+   - ![Screenshot 2](./img/Screenshot-2.png)
+4. For the website you want to track, click on the "Tracking Code" button.
+   - ![Screenshot 3](./img/Screenshot-3.png)
+5. The `data-website-id` property is what you want for the `websiteId` field and the `src` property is what you want for the `src` field.
+   - ![Screenshot 4](./img/Screenshot-4.png)
 
-5. The `data-website-id` value is the websiteID value - You can copy and paste this as it is. Just do **not** include the `"`
-6. The value of `src` is your `src` - You can copy and paste this as it is, just do not include the `"`
+[0]: https://github.com/PatelN123/docusaurus-plugin-umami
+[1]: https://github.com/PatelN123
+[2]: https://umami.is
+[3]: https://docusaurus.io
+[4]: https://docusaurus.io/docs/api/docusaurus-config
+[5]: https://docusaurus.io/docs/api/docusaurus-config#themeConfig
