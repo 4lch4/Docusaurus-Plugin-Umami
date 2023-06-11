@@ -1,51 +1,35 @@
-const path = require("path");
+import { NoSrcProperty, NoUmamiObject, NoWebsiteId } from './constants'
+import { logger } from '@4lch4/logger'
 
-module.exports = function(context) {
-  const { siteConfig } = context;
-  const { themeConfig } = siteConfig;
-  const { umami } = themeConfig || {};
+export default function (context) {
+  const { siteConfig } = context
+  const { themeConfig } = siteConfig
+  const { umami } = themeConfig || {}
 
-  if (!umami) {
-    throw new Error(
-      `Nayan Patel - Umami plugin: You need to specify 'umami' object in 'themeConfig'`
-    );
-  }
+  if (!umami) throw new Error(NoUmamiObject)
 
-  const {
-    websiteid,
-    src
-  } = umami;
-
-  if (!websiteid) {
-    throw new Error(
-      "Nayan Patel - Umami plugin: The websiteid is missing"
-    );
-  }
-
-  if (!src) {
-    throw new Error(
-      "Nayan Patel - Umami plugin: The script src is missing"
-    );
-  }
+  if (!umami.websiteId) throw new Error(NoWebsiteId)
+  if (!umami.src) throw new Error(NoSrcProperty)
 
   return {
-    name: "docusaurus-plugin-umami",
+    name: PluginName,
 
     injectHtmlTags() {
-      console.log("Nayan Patel - Plugin umami adding...");
+      logger.debug(`[${this.name}#injectHtmlTags]: Injecting Umami script...`)
+
       return {
         headTags: [
           {
-            tagName:  "script",
+            tagName: 'script',
             attributes: {
               async: true,
               defer: true,
-              'data-website-id': websiteid,
-              src: src,
+              'data-website-id': umami.websiteId,
+              src: umami.src,
             },
-          }
-        ]
-      };
-    }
-  };
-};
+          },
+        ],
+      }
+    },
+  }
+}
