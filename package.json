@@ -1,23 +1,44 @@
 {
-  "name": "docusaurus-plugin-umami",
-  "version": "2.0.0",
-  "description": "Umami plugin for docusaurus",
-  "main": "src/index.js",
-  "private": false,
-  "dependencies": {},
-  "devDependencies": {},
-  "files": [
-    "src",
-    "LICENSE",
-    "README.md"
-  ],
+  "name": "@4lch4/docusaurus-plugin-umami",
+  "displayName": "Docusaurus Plugin Umami",
+  "version": "0.0.0",
+  "description": "A Docusaurus plugin to add support for Umami analytics.",
+  "main": "./dist/index.js",
+  "exports": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/4lch4/Docusaurus-Plugin-Umami",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "pretty": "prettier --write .",
+    "lint": "prettier -c .",
+    "test": "echo 'There are currently no tests available.'",
+    "scan": "snyk monitor && snyk code test"
+  },
+  "files": ["src", "LICENSE", "README.md"],
   "engines": {
     "node": ">=10.15.1"
   },
-  "keywords": [
-    "docusaurus",
-    "umami"
-  ],
-  "author": "Nayan Patel",
-  "license": "MIT"
+  "keywords": ["docusaurus", "umami"],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/4lch4/4lch4.git"
+  },
+  "author": {
+    "name": "4lch4",
+    "email": "hey@4lch4.email",
+    "url": "https://4lch4.com"
+  },
+  "bugs": {
+    "email": "bugs@4lch4.email",
+    "url": "https://github.com/4lch4/Docusaurus-Plugin-Umami/issues"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  },
+  "dependencies": {
+    "@4lch4/logger": "^1.11.0"
+  }
 }
