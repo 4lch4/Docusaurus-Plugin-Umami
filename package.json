@@ -14,6 +14,9 @@
     "test": "echo 'There are currently no tests available.'",
     "scan": "snyk monitor && snyk code test"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "src",
     "LICENSE",
